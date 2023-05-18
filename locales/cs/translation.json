@@ -1,5 +1,102 @@
 {
-  "title": "Titulek ...",
-  "resource-url": "URL Zdroje",
-  "submit": "Potvrdit"
+  "home-view": {
+    "title": "Validátor lokálního katalogu",
+    "resource-url": "URL k validaci",
+    "submit": "Spustit validaci",
+    "entry-point": "Vstupní URL",
+    "catalog": "Katalog",
+    "dataset": "Datová sada",
+    "info": "Informace",
+    "warning": "Varování",
+    "error": "Chyba",
+    "critical": "Závažný chyba"
+  },
+  "json-schema": {
+    "group": "JSON-schéma",
+    "valid": "JSON dokument odpovídá JSON schématu.",
+    "invalid": "JSON dokument neodpovídá JSON schématu."
+  },
+  "http": {
+    "group": "",
+    "fetch-failed": "Nepodařilo se stáhnout data z '{{url}}', chyba: '{{error}}'.",
+    "invalid-response": "Server odpověděl chybou {{code}} : '{{text}}'.",
+    "success": "Stahuji data z URL."
+  },
+  "catalog": {
+    "group": "",
+    "validating-catalog": "Validuji katalog.",
+    "unexpected-error": "Něco se pokazilo ve validátoru: {{error}}.",
+    "validation-is-done": "Validace dokončena.",
+    "as-sparql": "Validuji jako SPARQL endpoint.",
+    "as-turtle": "Validuji jako turtle soubor.",
+    "as-jsonld": "Validuji jako JSON-LD soubor.",
+    "unknown-content-type": "Nepodařilo se určit typ pomocí HTTP hlavičky content type '{{type}}'.",
+    "as-turtle-by-extension": "Validuji jako turtle soubor dle přípony.",
+    "as-jsonld-by-extension": "Validuji jako JSON-LD soubor dle přípony.",
+    "can-not-determine-type": "Nepodařilo se určit typ."
+  },
+  "validator": {
+    "quad-count": "Načteno {{count}} trojic."
+  },
+  "json-ld": {
+    "group": "json-ld",
+    "can-not-parse-json": "Nepodařilo se přečíst JSON dokument. Chyba: {{error}}.",
+    "can-not-parse-json-ld": "Nepodařilo se přečíst JSON-LD dokument. Chyba: {{error}}."
+  },
+  "quads": {
+    "group": "RDF",
+    "missing-catalog": "Nepodařilo se najít žádný katalog.",
+    "multiple-catalogs": "Místo jednoho katalogu jsem našli {{count}}.",
+    "unexpected-catalog": "Katalog by měl mít URL '{{expected}}', ale nalezený má URL '{{actual}}'.",
+    "catalog-url": "Nalezen katalog s URL '{{url}}'.",
+    "catalog-count": "Nalezeno {{count}} katalogů.",
+    "status-validating-datasets": "Validuji datovou sadu {{index}} z {{total}}.",
+    "missing-dataset": "Nepodařilo se najít žádnou datovou sadu.",
+    "multiple-datasets": "Místo jedné datové sady jsem našli {{count}}.",
+    "unexpected-dataset": "Datová sada má mít URL '{{expected}}', ale nalezená má '{{actual}}'.",
+    "dataset-url": "Nalezena dataová sada s URL '{{url}}'."
+  },
+  "turtle": {
+    "group": "Turtle",
+    "can-not-parse": "Nepodařilo se přečíst obsah jako turtle soubor. Chyba: {{error}}."
+  },
+  "dataset": {
+    "group": "",
+    "as-turtle": "Validuji jako turtle soubor.",
+    "as-jsonld": "Validuji jako JSON-LD soubor.",
+    "unknown-content-type": "Nepodařilo se určit typ pomocí HTTP hlavičky content type '{{type}}'."
+  },
+  "sparql": {
+    "group": "SPARQL",
+    "fetch-failed": "Nepodařilo se získat data ze SPARQL endpointu. Chyba: {{error}}."
+  },
+  "shacl": {
+    "group": "SHACL"
+  },
+  "specification": {
+    "has-catalog": "Je tam katalog.",
+    "missing-catalog": "Není tam katalog.",
+    "has-dataset": "V katalogu je odkaz na nějaký dataset.",
+    "has-no-dataset": "V katalogu není odkaz na nějaký dataset.",
+    "has-title": "Má český název.",
+    "missing-title": "Český název chybí.",
+    "has-description": "Má český popis.",
+    "missing-description": "Český popis chybí.",
+    "has-spatial": "Datová sada má územní pokrytí aktualizace.",
+    "missing-spatial": "Datová sada nemá územní pokrytí z požadovaného slovníku.",
+    "shacl-valid": "Dokument splňuje SHACL.",
+    "shacl-invalid": "Dokument nesplňuje SHACL.",
+    "dataset-found": "Nalezena datová sada.",
+    "missing-dataset": "Nenalezena datová sada.",
+    "has-publisher": "Má poskytovatele.",
+    "missing-publisher": "Nemá poskytovatele.",
+    "has-publisher-ovm": "Má poskytovatele OMV.",
+    "missing-publisher-ovm": "Nemá poskytovatele OVM.",
+    "has-periodicity": "Má periodicitu aktualizace.",
+    "missing-periodicity": "Nemá periodicitu aktualizace z požadovaného slovníku.",
+    "has-theme": "Má alespoň jedno téma.",
+    "missing-theme": "Nemá téma z požadovaného slovníku.",
+    "has-keyword": "Má alespoň jedno klíčové slovo.",
+    "missing-keyword": "Nemá klíčové slova."
+  }
 }

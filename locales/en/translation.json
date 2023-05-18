@@ -1,6 +1,102 @@
 {
-  "title": "Titulek ...",
-  "resource-url": "URL Zdroje",
-  "submit": "Potvrdit",
-  "not-found": "Not Found"
+  "home-view": {
+    "title": "Local data catalog validator",
+    "resource-url": "Resource URL",
+    "submit": "Start validation",
+    "entry-point": "Entry URL",
+    "catalog": "Catalog",
+    "dataset": "Dataset",
+    "info": "Information",
+    "warning": "Warning",
+    "error": "Error",
+    "critical": "Critical error"
+  },
+  "json-schema": {
+    "group": "JSON-schema",
+    "valid": "JSON is valid according to JSON schema.",
+    "invalid": "JSON is not valid according to JSON schema."
+  },
+  "http": {
+    "group": "",
+    "fetch-failed": "Fetch of '{{url}}' failed, with error message '{{error}}'.",
+    "invalid-response": "Got error response data, status {{code}} : '{{text}}'.",
+    "success": "Fetching data from URL."
+  },
+  "catalog": {
+    "group": "",
+    "validating-catalog": "Validating catalog.",
+    "unexpected-error": "There might be a bug in this application. Error: {{error}}.",
+    "validation-is-done": "Validation completed.",
+    "as-sparql": "Validating as SPARQL endpoint.",
+    "as-turtle": "Validating as turtle file.",
+    "as-jsonld": "Validating as JSON-LD file.",
+    "unknown-content-type": "Can't determine type from content type '{{type}}'.",
+    "as-turtle-by-extension": "Validating as turtle file based on file extension.",
+    "as-jsonld-by-extension": "Validating as JSON-LD file based on file extension.",
+    "can-not-determine-type": "Can not determine type of data."
+  },
+  "validator": {
+    "quad-count": "Loaded {{count}} statements."
+  },
+  "json-ld": {
+    "group": "json-ld",
+    "can-not-parse-json": "Can't parse content as JSON. Error: {{error}}.",
+    "can-not-parse-json-ld": "Can't parse content as JSON-LD. Error: {{error}}."
+  },
+  "quads": {
+    "group": "RDF",
+    "missing-catalog": "No catalog resource found.",
+    "multiple-catalogs": "Expected one catalog, found {{count}}.",
+    "unexpected-catalog": "Expected catalog '{{expected}}', found '{{actual}}'.",
+    "catalog-url": "Found catalog '{{url}}'.",
+    "catalog-count": "Found {{count}} dataset(s).",
+    "status-validating-datasets": "Validating dataset {{index}}/{{total}}.",
+    "missing-dataset": "No dataset resource found.",
+    "multiple-datasets": "Expected one dataset, found {{count}}.",
+    "unexpected-dataset": "Expected dataset '{{expected}}', found '{{actual}}'.",
+    "dataset-url": "Found dataset '{{url}}'."
+  },
+  "turtle": {
+    "group": "Turtle",
+    "can-not-parse": "Can't parse content as turtle. Error: {{error}}."
+  },
+  "dataset": {
+    "group": "",
+    "as-turtle": "Validating as turtle file.",
+    "as-jsonld": "Validating as JSON-LD file.",
+    "unknown-content-type": "Can't determine type from content type '{{type}}'."
+  },
+  "sparql": {
+    "group": "SPARQL",
+    "fetch-failed": "Can't fetch data from endpoint. Error: {{error}}."
+  },
+  "shacl": {
+    "group": "SHACL"
+  },
+  "specification": {
+    "has-catalog": "Catalog has been found.",
+    "missing-catalog": "Catalog is missing.",
+    "has-dataset": "Catalog is not empty.",
+    "has-no-dataset": "Catalog is empty, there are no datasets in it.",
+    "has-title": "There is Czech title.",
+    "missing-title": "Czech title is missing.",
+    "has-description": "There is Czech description.",
+    "missing-description": "Czech description is missing.",
+    "has-spatial": "Spatial coverage is specified.",
+    "missing-spatial": "Spatial coverage from the required vocabulary is missing.",
+    "shacl-valid": "Document match SHACL shape.",
+    "shacl-invalid": "Document does not match SHACL shape.",
+    "dataset-found": "Dataset exists.",
+    "missing-dataset": "Dataset resource is missing.",
+    "has-publisher": "THere is publisher.",
+    "missing-publisher": "Publisher is missing.",
+    "has-publisher-ovm": "Publisher is OVM.",
+    "missing-publisher-ovm": "Publisher is not OVM.",
+    "has-periodicity": "There is accrual periodicity.",
+    "missing-periodicity": "Accrual periodicity from the required vocabulary is missing.",
+    "has-theme": "There are themes.",
+    "missing-theme": "Theme from the required vocabulary is missing.",
+    "has-keyword": "There are keywords.",
+    "missing-keyword": "There must be at leas one keyword."
+  }
 }
