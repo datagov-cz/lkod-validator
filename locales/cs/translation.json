@@ -9,7 +9,10 @@
     "info": "Informace",
     "warning": "Varování",
     "error": "Chyba",
-    "critical": "Závažný chyba"
+    "critical": "Závažný chyba",
+    "level-filter": "Minimální závažnost zobraných výsledků",
+    "no-groups": "Výsledky se zde zobrazí po spuštění validace.",
+    "all-is-hidden": "Nejsou dostupné žádné výsledky požadované závažnosti."
   },
   "json-schema": {
     "group": "JSON-schéma",
