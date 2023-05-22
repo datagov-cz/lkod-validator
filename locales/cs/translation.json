@@ -12,7 +12,8 @@
     "critical": "Závažný chyba",
     "level-filter": "Minimální závažnost zobraných výsledků",
     "no-groups": "Výsledky se zde zobrazí po spuštění validace.",
-    "all-is-hidden": "Nejsou dostupné žádné výsledky požadované závažnosti."
+    "all-is-hidden": "Nejsou dostupné žádné výsledky požadované závažnosti.",
+    "show-simplified": "Zobrazit souhrný pohled"
   },
   "json-schema": {
     "group": "JSON-schéma",
