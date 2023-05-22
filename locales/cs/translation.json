@@ -21,8 +21,8 @@
   },
   "http": {
     "group": "",
-    "fetch-failed": "Nepodařilo se stáhnout data z '{{url}}', chyba: '{{error}}'.",
-    "invalid-response": "Server odpověděl chybou {{code}} : '{{text}}'.",
+    "fetch-failed": "Nepodařilo se stáhnout data z '{{url}}'.",
+    "invalid-response": "Server odpověděl HTTP kódem {{code}}.",
     "success": "Stahuji data z URL."
   },
   "catalog": {
@@ -101,5 +101,6 @@
     "missing-theme": "Nemá téma z požadovaného slovníku.",
     "has-keyword": "Má alespoň jedno klíčové slovo.",
     "missing-keyword": "Nemá klíčové slova."
-  }
+  },
+  "summary": {}
 }
