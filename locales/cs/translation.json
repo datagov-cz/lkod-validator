@@ -30,17 +30,15 @@
     "group": "",
     "validating-catalog": "Validuji katalog.",
     "unexpected-error": "Něco se pokazilo ve validátoru: {{error}}.",
-    "validation-is-done": "Validace dokončena.",
+    "validation-is-done": "Validace dokončena."
+  },
+  "validator": {
+    "quad-count": "Načteno {{count}} trojic.",
     "as-sparql": "Validuji jako SPARQL endpoint.",
     "as-turtle": "Validuji jako turtle soubor.",
     "as-jsonld": "Validuji jako JSON-LD soubor.",
-    "unknown-content-type": "Nepodařilo se určit typ pomocí HTTP hlavičky content type '{{type}}'.",
-    "as-turtle-by-extension": "Validuji jako turtle soubor dle přípony.",
-    "as-jsonld-by-extension": "Validuji jako JSON-LD soubor dle přípony.",
-    "can-not-determine-type": "Nepodařilo se určit typ."
-  },
-  "validator": {
-    "quad-count": "Načteno {{count}} trojic."
+    "unknown-content-type": "Nepodařilo se určit typ pomocí HTTP hlavičky content type '{{contentType}}'.",
+    "unknown-extension": "Nepodařilo se určit typ pomocí přípony."
   },
   "json-ld": {
     "group": "json-ld",
