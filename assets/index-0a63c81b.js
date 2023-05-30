@@ -261,16 +261,9 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 
 CONSTRUCT { 
   ?catalog ?catalogPredicate ?catalogObject .
-  ?publisher ?publisherPredicate ?publisherObject .
 } WHERE {
   ?catalog a dcat:Catalog ;
     ?catalogPredicate ?catalogObject .
-    
-  OPTIONAL {
-    ?catalog dcterms:publisher ?publisher .
-    ?publisher ?publisherPredicate ?publisherObject .
-  }
-
 }`}async function Yc(e,t){const n=await RP.fetchTriples(e,t);return new Promise((r,o)=>{const a=[];n.on("data",i=>a.push(i)),n.on("end",()=>r(a)),n.on("error",i=>o(i))})}function PP(e){return`
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
