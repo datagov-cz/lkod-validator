@@ -58,7 +58,8 @@
   "json-ld": {
     "group": "json-ld",
     "can-not-parse-json": "Nepodařilo se přečíst JSON dokument. Chyba: {{error}}.",
-    "can-not-parse-json-ld": "Nepodařilo se přečíst JSON-LD dokument. Chyba: {{error}}."
+    "can-not-parse-json-ld": "Nepodařilo se přečíst JSON-LD dokument. Chyba: {{error}}.",
+    "look-like-ckan": "Dokument a URL vypadá jako CKAN API. Toto API není podporované."
   },
   "quads": {
     "group": "RDF",
