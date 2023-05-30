@@ -1,7 +1,7 @@
 {
   "home-view": {
     "title": "Validátor lokálního katalogu",
-    "resource-url": "URL k validaci",
+    "resource-url": "URL vstupního bodu k validaci",
     "submit": "Spustit validaci",
     "entry-point": "Vstupní URL",
     "catalog": "Katalog",
@@ -9,12 +9,22 @@
     "info": "Informace",
     "warning": "Varování",
     "error": "Chyba",
-    "critical": "Závažný chyba",
+    "critical": "Závažná chyba",
     "level-filter": "Minimální závažnost zobraných výsledků",
     "no-groups": "Výsledky se zobrazí po spuštění validace.",
     "all-is-hidden": "Nejsou dostupné žádné výsledky požadované závažnosti.",
     "show-details": "Zobrazit detaily",
-    "hide-details": "Skrýt detaily"
+    "hide-details": "Skrýt detaily",
+    "waiting-for-validation-to-start": "Výsledky se zde zobrazí po spuštění validace."
+  },
+  "summary": {
+    "content-type": "Formát vstupního bodu:",
+    "validation-failed-critical": "Napodařilo se načíst vstupní bod, postytnuté URL nevede na validní lokální katalog.",
+    "catalog-url": "URL katalogu:",
+    "catalog-title": "Název katalogu:",
+    "datasets-count": "Celkový počet nalezených datových sad:",
+    "datasets-with-warning-without-error": "Počet datových sad s varováním, ale bez chyby:",
+    "datasets-with-error": "Počet datových sad s chybou:"
   },
   "json-schema": {
     "group": "JSON-schéma",
@@ -23,9 +33,9 @@
   },
   "http": {
     "group": "",
-    "fetch-failed": "Nepodařilo se stáhnout data z '{{url}}'. <br/> Prosím zkontorlujte, že je URL dostupné a má správně nastavenou techniku CORS.",
+    "fetch-failed": "Nepodařilo se stáhnout data z '{{url}}'. Prosím zkontorlujte, že je URL dostupné a má správně nastavenou techniku CORS.",
     "invalid-response": "Server odpověděl HTTP kódem {{code}}.",
-    "success": "Stahuji data z URL."
+    "success": "Povedlo se načíst data z URL."
   },
   "catalog": {
     "group": "",
@@ -38,7 +48,7 @@
     "as-sparql": "Validuji jako SPARQL endpoint.",
     "as-turtle": "Validuji jako turtle soubor.",
     "as-jsonld": "Validuji jako JSON-LD soubor.",
-    "unknown-content-type": "Nepodařilo se určit typ pomocí HTTP hlavičky content type '{{contentType}}'.",
+    "unknown-content-type": "Nepodařilo se určit typ pomocí HTTP hlavičky 'content-type' s hodnotou '{{contentType}}'.",
     "unknown-extension": "Nepodařilo se určit typ pomocí přípony."
   },
   "json-ld": {
@@ -52,7 +62,7 @@
     "multiple-catalogs": "Místo jednoho katalogu jsem našli {{count}}.",
     "unexpected-catalog": "Katalog by měl mít URL '{{expected}}', ale nalezený má URL '{{actual}}'.",
     "catalog-url": "Nalezen katalog s URL '{{url}}'.",
-    "catalog-count": "Nalezeno {{count}} katalogů.",
+    "dataset-count": "Nalezeno {{count}} datových sad.",
     "status-validating-datasets": "Validuji datovou sadu {{index}} z {{total}}.",
     "missing-dataset": "Nepodařilo se najít žádnou datovou sadu.",
     "multiple-datasets": "Místo jedné datové sady jsem našli {{count}}.",
@@ -77,13 +87,13 @@
     "group": "SHACL"
   },
   "specification": {
-    "has-catalog": "Je tam katalog.",
-    "missing-catalog": "Není tam katalog.",
-    "has-dataset": "V katalogu je odkaz na nějaký dataset.",
-    "has-no-dataset": "V katalogu není odkaz na nějaký dataset.",
-    "has-title": "Má český název.",
+    "has-catalog": "Nalezena definice katalogu 'dcat:Catalog'.",
+    "missing-catalog": "Nebyla nalezena definice katalogu 'dcat:Catalog'.",
+    "has-dataset": "Katalog obsahuje alespoň jedenu datovou sadu.",
+    "has-no-dataset": "Katalog je prázdný, musí obsahovat alespoň jednu datovou sadu.",
+    "has-title": "Nalezen český název.",
     "missing-title": "Český název chybí.",
-    "has-description": "Má český popis.",
+    "has-description": "Nalezen český popis.",
     "missing-description": "Český popis chybí.",
     "has-spatial": "Datová sada má územní pokrytí aktualizace.",
     "missing-spatial": "Datová sada nemá územní pokrytí z požadovaného slovníku.",
@@ -91,16 +101,15 @@
     "shacl-invalid": "Dokument nesplňuje SHACL.",
     "dataset-found": "Nalezena datová sada.",
     "missing-dataset": "Nenalezena datová sada.",
-    "has-publisher": "Má poskytovatele.",
+    "has-publisher": "Nalezen poskytovatel.",
     "missing-publisher": "Nemá poskytovatele.",
-    "has-publisher-ovm": "Má poskytovatele OMV.",
+    "has-publisher-ovm": "Nalezen poskytovatele OVM.",
     "missing-publisher-ovm": "Nemá poskytovatele OVM.",
     "has-periodicity": "Má periodicitu aktualizace.",
     "missing-periodicity": "Nemá periodicitu aktualizace z požadovaného slovníku.",
-    "has-theme": "Má alespoň jedno téma.",
+    "has-theme": "Nalezeno alespoň jedno téma.",
     "missing-theme": "Nemá téma z požadovaného slovníku.",
-    "has-keyword": "Má alespoň jedno klíčové slovo.",
+    "has-keyword": "Nalezeno alespoň jedno klíčové slovo.",
     "missing-keyword": "Nemá klíčové slova."
-  },
-  "summary": {}
+  }
 }
