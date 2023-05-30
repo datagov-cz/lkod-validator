@@ -1,6 +1,7 @@
 {
   "home-view": {
     "title": "Validátor lokálního katalogu",
+    "introduction": "Tento validátor na základě URL rozhraní Lokálního katalogu otevřených dat (LKOD) zvaliduje jeho správnost vůči <1>otevřené formální normě</1>. Lze tedy použít během vývoje LKOD, před jeho registrací do NKOD, nebo po registraci, pokud je <2>lokální katalog vidět v NKOD</2>, ale nenačtou se z něj žádné datové sady. Rozhraní LKOD musí implementovat <3>techniku CORS</3>.",
     "resource-url": "URL vstupního bodu k validaci",
     "submit": "Spustit validaci",
     "entry-point": "Vstupní URL",
