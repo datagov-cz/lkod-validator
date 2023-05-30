@@ -64,7 +64,7 @@
     "catalog-url": "Nalezen katalog s URL '{{url}}'.",
     "dataset-count": "Nalezeno {{count}} datových sad.",
     "status-validating-datasets": "Validuji datovou sadu {{index}} z {{total}}.",
-    "missing-dataset": "Nepodařilo se najít žádnou datovou sadu.",
+    "missing-dataset": "Nepodařilo se najít datovou sadu.",
     "multiple-datasets": "Místo jedné datové sady jsem našli {{count}}.",
     "unexpected-dataset": "Datová sada má mít URL '{{expected}}', ale nalezená má '{{actual}}'.",
     "dataset-url": "Nalezena dataová sada s URL '{{url}}'."
