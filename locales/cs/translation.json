@@ -115,6 +115,14 @@
     "has-theme": "Nalezeno alespoň jedno téma.",
     "missing-theme": "Nemá téma z požadovaného slovníku.",
     "has-keyword": "Nalezeno alespoň jedno klíčové slovo.",
-    "missing-keyword": "Nemá klíčové slova."
+    "missing-keyword": "Nemá klíčové slova.",
+    "missing-terms-of-use": "Chybí podmínky užití pro distribuci '{{distribution}}'.",
+    "access-url": "Chybí dcat:accessURL pro distribuci '{{distribution}}'.",
+    "invalid-media-type": "Není uvedený platný madia type pro distribuci '{{distribution}}'.",
+    "invalid-format": " 'Není uvedený platný formát souboru pro distribuci {{distribution}}'.",
+    "data-service": {
+      "missing-title": "Chybí český název datové služby pro distribuci '{{distribution}}'.",
+      "missing-endpoint-url": "Chybí URL endpointu datové služby pro distribuci '{{distribution}}'."
+    }
   }
 }
