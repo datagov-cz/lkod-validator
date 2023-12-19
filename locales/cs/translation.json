@@ -23,7 +23,7 @@
     "content-type-SPARQL": "DCAT-AP SPARQL Endpoint",
     "content-type-JSONLD": "DCAT-AP Dokumenty - JSON-LD",
     "content-type-TURTLE": "DCAT-AP Dokumenty - RDF Turtle",
-    "validation-failed-critical": "Napodařilo se načíst vstupní bod, postytnuté URL nevede na validní lokální katalog.",
+    "validation-failed-critical": "Nepodařilo se načíst vstupní bod, poskytnuté URL nevede na validní lokální katalog.",
     "catalog-url": "URL katalogu:",
     "catalog-title": "Název katalogu:",
     "datasets-count": "Celkový počet nalezených datových sad:",
