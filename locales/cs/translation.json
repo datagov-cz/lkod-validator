@@ -1,128 +1,103 @@
 {
-  "home-view": {
+  "ui": {
     "title": "Validátor lokálního katalogu",
     "introduction": "Tento validátor na základě URL rozhraní Lokálního katalogu otevřených dat (LKOD) zvaliduje jeho správnost vůči <1>otevřené formální normě</1>. Lze tedy použít během vývoje LKOD, před jeho registrací do NKOD, nebo po registraci, pokud je <2>lokální katalog vidět v NKOD</2>, ale nenačtou se z něj žádné datové sady. Rozhraní LKOD musí implementovat <3>techniku CORS</3>.",
     "resource-url": "URL vstupního bodu k validaci",
     "submit": "Spustit validaci",
-    "entry-point": "Vstupní URL",
-    "catalog": "Katalog",
-    "dataset": "Datová sada",
+    "validation-failed-{error}": "Něco se nečekaně pokazilo při validaci. Prosím nahlašte nám jaké URL jste validovali, ať to můžeme opravit.",
+    "can-not-convert-to-rdf-summary": "Nepodařilo se načíst vstupní bod jako RDF, poskytnuté URL nevede na validní lokální katalog.",
+    "can-not-convert-to-rdf-suggestion": "Zkontrolujte prosím, že se jedná o validní RDF.",
+    "can-not-fetch-data-summary": "Nepodařilo se načíst vstupní bod, poskytnuté URL nevede na validní lokální katalog.",
+    "can-not-fetch-data-suggestion": "Prosím zkontrolujte, že je URL dostupné a má správně nastavenou techniku CORS.",
+    "can-not-determine-content-type-no-status-summary": "Nepodařilo se načíst vstupní bod, poskytnuté URL nevede na validní lokální katalog.",
+    "can-not-determine-content-type-no-status-suggestion": "Prosím zkontrolujte, že je URL dostupné a má správně nastavenou techniku CORS.",
+    "can-not-determine-content-type-status-summary": "Nepodařilo se načíst vstupní bod, poskytnuté URL nevede na validní lokální katalog.",
+    "can-not-determine-content-type-status-suggestion-{status-code}-{content-type}": "Server odpověděl HTTP kódem {{status-code}} a hlavičkou content-type \"{{content-type}}\".",
+    "content-type": "Formát vstupního bodu",
+    "catalog-url": "URL katalogu",
+    "catalog-title": "Název katalogu",
+    "number-of-resources-with-error": "Odkazané záznamy datových sad s chybou",
+    "number-of-datasets": "Celkový počet nalezených datových sad",
+    "number-of-datasets-with-warning": "Počet nalezených datových sad s varováním, ale bez chyby",
+    "number-of-datasets-with-error": "Počet nalezených datových sad s chybou",
+    "number-of-hvd": "Počet nalezených HVD",
+    "content-type-SPARQL": "DCAT-AP SPARQL Endpoint",
+    "content-type-JSONLD": "DCAT-AP Dokumenty - JSON-LD",
+    "content-type-TURTLE": "DCAT-AP Dokumenty - RDF Turtle",
+    "content-type-unknown": "Neznámý",
+    "show-details": "Zobrazit detaily",
+    "hide-details": "Skrýt detaily",
+    "level-filter": "Minimální závažnost zobraných výsledků",
     "info": "Informace",
     "warning": "Varování",
     "error": "Chyba",
     "critical": "Závažná chyba",
-    "level-filter": "Minimální závažnost zobraných výsledků",
-    "no-groups": "Výsledky se zobrazí po spuštění validace.",
-    "all-is-hidden": "Nejsou dostupné žádné výsledky požadované závažnosti.",
-    "show-details": "Zobrazit detaily",
-    "hide-details": "Skrýt detaily",
-    "waiting-for-validation-to-start": "Výsledky se zde zobrazí po spuštění validace."
+    "referenced-resources": "Odkázané URL z katalogu",
+    "dataset": "Datová sada",
+    "no-search-results": "Nejsou dostupné žádné výsledky požadované závažnosti."
   },
-  "summary": {
-    "content-type": "Formát vstupního bodu:",
-    "content-type-SPARQL": "DCAT-AP SPARQL Endpoint",
-    "content-type-JSONLD": "DCAT-AP Dokumenty - JSON-LD",
-    "content-type-TURTLE": "DCAT-AP Dokumenty - RDF Turtle",
-    "validation-failed-critical": "Nepodařilo se načíst vstupní bod, poskytnuté URL nevede na validní lokální katalog.",
-    "catalog-url": "URL katalogu:",
-    "catalog-title": "Název katalogu:",
-    "datasets-count": "Celkový počet nalezených datových sad:",
-    "datasets-with-warning-without-error": "Počet datových sad s varováním, ale bez chyby:",
-    "datasets-with-error": "Počet datových sad s chybou:"
+  "logger": {
+    "loading-catalog-entry-{catalog}": "Načítám katalog \"{{catalog}}\".",
+    "loading-dataset-entry-{dataset}": "Načítám datovou sadu \"{{dataset}}\"."
   },
-  "json-schema": {
-    "group": "JSON-schéma",
-    "valid": "JSON dokument odpovídá JSON schématu.",
-    "invalid": "JSON dokument neodpovídá JSON schématu."
-  },
-  "http": {
-    "group": "",
-    "fetch-failed": "Nepodařilo se stáhnout data z '{{url}}'. Prosím zkontorlujte, že je URL dostupné a má správně nastavenou techniku CORS.",
-    "invalid-response": "Server odpověděl HTTP kódem {{code}}.",
-    "success": "Povedlo se načíst data z URL."
-  },
-  "catalog": {
-    "group": "",
-    "validating-catalog": "Validuji katalog.",
-    "unexpected-error": "Něco se pokazilo ve validátoru: {{error}}.",
-    "validation-is-done": "Validace dokončena."
-  },
-  "validator": {
-    "quad-count": "Načteno {{count}} trojic.",
-    "as-sparql": "Validuji jako SPARQL endpoint.",
-    "as-turtle": "Validuji jako turtle soubor.",
-    "as-jsonld": "Validuji jako JSON-LD soubor.",
-    "unknown-content-type": "Nepodařilo se určit typ pomocí HTTP hlavičky 'content-type' s hodnotou '{{contentType}}'.",
-    "unknown-extension": "Nepodařilo se určit typ pomocí přípony."
-  },
-  "json-ld": {
-    "group": "json-ld",
-    "can-not-parse-json": "Nepodařilo se přečíst JSON dokument. Chyba: {{error}}.",
-    "can-not-parse-json-ld": "Nepodařilo se přečíst JSON-LD dokument. Chyba: {{error}}.",
-    "look-like-ckan": "Dokument a URL vypadá jako CKAN API. Toto API není podporované."
-  },
-  "quads": {
-    "group": "RDF",
-    "missing-catalog": "Nepodařilo se najít žádný katalog.",
-    "multiple-catalogs": "Místo jednoho katalogu jsem našli {{count}}.",
-    "unexpected-catalog": "Katalog by měl mít URL '{{expected}}', ale nalezený má URL '{{actual}}'.",
-    "catalog-url": "Nalezen katalog s URL '{{url}}'.",
-    "dataset-count": "Nalezeno {{count}} datových sad.",
-    "status-validating-datasets": "Validuji datovou sadu {{index}} z {{total}}.",
-    "missing-dataset": "Nepodařilo se najít datovou sadu.",
-    "multiple-datasets": "Místo jedné datové sady jsem našli {{count}}.",
-    "unexpected-dataset": "Datová sada má mít URL '{{expected}}', ale nalezená má '{{actual}}'.",
-    "dataset-url": "Nalezena dataová sada s URL '{{url}}'."
-  },
-  "turtle": {
-    "group": "Turtle",
-    "can-not-parse": "Nepodařilo se přečíst obsah jako turtle soubor. Chyba: {{error}}."
-  },
-  "dataset": {
-    "group": "",
-    "as-turtle": "Validuji jako turtle soubor.",
-    "as-jsonld": "Validuji jako JSON-LD soubor.",
-    "unknown-content-type": "Nepodařilo se určit typ pomocí HTTP hlavičky content type '{{type}}'."
-  },
-  "sparql": {
-    "group": "SPARQL",
-    "fetch-failed": "Nepodařilo se získat data ze SPARQL endpointu. Chyba: {{error}}."
-  },
-  "shacl": {
-    "group": "SHACL"
-  },
-  "specification": {
-    "has-catalog": "Nalezena definice katalogu 'dcat:Catalog'.",
-    "missing-catalog": "Nebyla nalezena definice katalogu 'dcat:Catalog'.",
-    "has-dataset": "Katalog obsahuje alespoň jedenu datovou sadu.",
-    "has-no-dataset": "Katalog je prázdný, musí obsahovat alespoň jednu datovou sadu.",
-    "has-title": "Nalezen český název.",
-    "missing-title": "Český název chybí.",
-    "has-description": "Nalezen český popis.",
-    "missing-description": "Český popis chybí.",
-    "has-spatial": "Datová sada má územní pokrytí aktualizace.",
-    "missing-spatial": "Datová sada nemá územní pokrytí z požadovaného slovníku.",
-    "shacl-valid": "Dokument splňuje SHACL.",
-    "shacl-invalid": "Dokument nesplňuje SHACL.",
-    "dataset-found": "Nalezena datová sada.",
-    "missing-dataset": "Nenalezena datová sada.",
-    "has-publisher": "Nalezen poskytovatel.",
-    "missing-publisher": "Nemá poskytovatele.",
-    "has-publisher-ovm": "Nalezen poskytovatele OVM.",
-    "missing-publisher-ovm": "Nemá poskytovatele OVM.",
-    "has-periodicity": "Má periodicitu aktualizace.",
-    "missing-periodicity": "Nemá periodicitu aktualizace z požadovaného slovníku.",
-    "has-theme": "Nalezeno alespoň jedno téma.",
-    "missing-theme": "Nemá téma z požadovaného slovníku.",
-    "has-keyword": "Nalezeno alespoň jedno klíčové slovo.",
-    "missing-keyword": "Nemá klíčové slova.",
-    "missing-terms-of-use": "Chybí podmínky užití pro distribuci '{{distribution}}'.",
-    "access-url": "Chybí dcat:accessURL pro distribuci '{{distribution}}'.",
-    "invalid-media-type": "Není uvedený platný madia type pro distribuci '{{distribution}}'.",
-    "invalid-format": " 'Není uvedený platný formát souboru pro distribuci {{distribution}}'.",
+  "issues": {
+    "resource": {
+      "failed-to-determine-content-type": "Nepodařilo se určit typ obsahu.",
+
+      "failed-to-fetch": "Nepodařilo se získat obsah.",
+      "failed-to-fetch-SPARQL": "Nepodařilo se získat obsah ze SPARQL endpointu.",
+      "failed-to-fetch-JSONLD": "Nepodařilo se získat obsah jako JSON-LD.",
+      "failed-to-fetch-TURTLE": "Nepodařilo se získat obsah jako RDF Turtle.",
+      "failed-to-convert-to-rdf": "Nepodařilo se načíst obsah jako RDF.",
+      "no-dataset-found": "Nebyla nalezena žádná datová sada.",
+      "is-json-but-not-valid-by-hvd-json-schema": "Dokument neodpovídá HVD JSON schématu.",
+      "is-json-but-not-valid-by-dataset-json-schema": "Dokument neodpovídá JSON schématu datové sady.",
+      "is-json-but-not-valid-by-series-json-schema": "Dokument neodpovídá JSON schématu datové série."
+    },
+    "dataset": {
+      "missing-type": "Chybí dcat:Dataset.",
+      "missing-czech-title": "Chybí český název.",
+      "missing-czech-description": "Chybí český popisek.",
+      "missing-publisher": "Chybí poskytovatel.",
+      "missing-ovm-publisher": "Poskytovatel není OVM.",
+      "missing-accrual-periodicity": "Chybí periodicita aktualizace.",
+      "missing-eurovoc-accrual-periodicity": "Periodicita aktualizace není z požadovaného číselníků.",
+      "missing-spatial": "Chybí územní pokrytí.",
+      "missing-ruian-spatial": "Územní pokrytí není z RÚIANu.",
+      "missing-theme": "Chybí téma datové sady.",
+      "missing-eurovoc-theme": "Chybí téma datové sady z Eurovocu.",
+      "missing-keyword": "Chybí klíčové slovo.",
+      "missing-czech-keyword": "Chybí české klíčové slovo.",
+      "this-is-hvd": "Datové sada je HVD.",
+      "missing-hvd-category": "Chybí HVD kategorie.",
+      "contains-hvd-top-category": "Je použita kořenová HVD kategorie.",
+      "no-distribution-found": "Nebyla nalezena žádná distribuce."
+    },
+    "dataset-series": {
+      "distribution-found-but-not-expected": "Datové série nesmí mít distribuce."
+    },
+    "distribution": {
+      "missing-access-url-{distribution}": "Chybí přístupová url pro \"{{distribution}}\".",
+      "missing-terms-of-use-{distribution}": "Chybí podmínky užití pro \"{{distribution}}\"."
+    },
     "data-service": {
-      "missing-title": "Chybí český název datové služby pro distribuci '{{distribution}}'.",
-      "missing-endpoint-url": "Chybí URL endpointu datové služby pro distribuci '{{distribution}}'."
+      "missing-czech-title-{data-service}": "Chybí český název pro \"{{data-service}}\".",
+      "missing-endpoint-url-{data-service}": "Chybí endpoint URL pro \"{{data-service}}\".",
+      "missing-hvd-category-{data-service}": "Chybí HVD kategorie pro \"{{data-service}}\".",
+      "using-hvd-top-category-{data-service}": "je použita kořenová HVD kategorie pro \"{{data-service}}\".",
+      "missing-contact-point-{data-service}": "Chybí kontaktní údaje pro \"{{data-service}}\".",
+      "missing-page-{data-service}": "Chybí dokumentace pro \"{{data-service}}\"."
+    },
+    "summary": {
+      "content-type-from-extension": "Druh obsahu byl určen z přípony.",
+      "invalid-shacl": "Obsah není validní dle SHACL.",
+      "invalid-json-schema": "Obsah není validní dle JSON schématu.",
+      "missing-catalog": "Chybí instance katalogu.",
+      "multiple-catalogs": "Nalezeno více, než jeden jeden katalog.",
+      "missing-czech-title": "Chybí český název.",
+      "missing-czech-description": "Chybí český popisek.",
+      "missing-publisher": "Chybí poskytovatel.",
+      "missing-ovm-publisher": "Poskytovatel není OVM."
     }
   }
 }
