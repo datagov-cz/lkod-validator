@@ -70,7 +70,7 @@
       "missing-czech-keyword": "Chybí české klíčové slovo.",
       "this-is-hvd": "Datové sada je HVD.",
       "missing-hvd-category": "Chybí HVD kategorie.",
-      "contains-hvd-top-category": "Je použita kořenová HVD kategorie.",
+      "contains-hvd-top-category": "Je použita kořenová HVD kategorie, má být použita specifická (listová).",
       "no-distribution-found": "Nebyla nalezena žádná distribuce."
     },
     "dataset-series": {
@@ -84,12 +84,12 @@
       "missing-czech-title-{data-service}": "Chybí český název pro \"{{data-service}}\".",
       "missing-endpoint-url-{data-service}": "Chybí endpoint URL pro \"{{data-service}}\".",
       "missing-hvd-category-{data-service}": "Chybí HVD kategorie pro \"{{data-service}}\".",
-      "using-hvd-top-category-{data-service}": "je použita kořenová HVD kategorie pro \"{{data-service}}\".",
+      "using-hvd-top-category-{data-service}": "je použita kořenová HVD kategorie pro \"{{data-service}}\", má být použita specifická (listová).",
       "missing-contact-point-{data-service}": "Chybí kontaktní údaje pro \"{{data-service}}\".",
       "missing-page-{data-service}": "Chybí dokumentace pro \"{{data-service}}\"."
     },
     "summary": {
-      "content-type-from-extension": "Druh obsahu byl určen z přípony.",
+      "content-type-from-extension": "Druh obsahu byl určen z přípony. Webovým serverem není indikován správný Content-Type.",
       "invalid-shacl": "Obsah není validní dle SHACL.",
       "invalid-json-schema": "Obsah není validní dle JSON schématu.",
       "missing-catalog": "Chybí instance katalogu.",
