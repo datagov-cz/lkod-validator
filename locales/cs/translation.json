@@ -35,7 +35,8 @@
     "referenced-resources": "Odkázané URL z katalogu",
     "dataset": "Datová sada",
     "dataseries": "Datová sada (série)",
-    "no-search-results": "Nejsou dostupné žádné výsledky požadované závažnosti."
+    "no-search-results": "Nejsou dostupné žádné výsledky požadované závažnosti.",
+    "processing-{total}-{actual}": "Probíhá zpracování {{actual}} z {{total}}."
   },
   "logger": {
     "loading-catalog-entry-{catalog}": "Načítám katalog \"{{catalog}}\".",
