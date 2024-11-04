@@ -45,7 +45,6 @@
   "issues": {
     "resource": {
       "failed-to-determine-content-type": "Nepodařilo se určit typ obsahu.",
-
       "failed-to-fetch": "Nepodařilo se získat obsah.",
       "failed-to-fetch-SPARQL": "Nepodařilo se získat obsah ze SPARQL endpointu.",
       "failed-to-fetch-JSONLD": "Nepodařilo se získat obsah jako JSON-LD.",
@@ -73,7 +72,8 @@
       "this-is-hvd": "Datové sada je HVD.",
       "missing-hvd-category": "Chybí HVD kategorie.",
       "contains-hvd-top-category": "Je použita kořenová HVD kategorie, má být použita specifická (listová).",
-      "no-distribution-found": "Nebyla nalezena žádná distribuce."
+      "no-distribution-found": "Nebyla nalezena žádná distribuce.",
+      "missing-hvd-distribution-for-hvd-dataset": "HVD datová sada musí mít alespoň jednu HVD distribuci."
     },
     "dataset-series": {
       "distribution-found-but-not-expected": "Datové série nesmí mít distribuce."
@@ -83,12 +83,13 @@
       "missing-terms-of-use-{distribution}": "Chybí podmínky užití pro \"{{distribution}}\"."
     },
     "data-service": {
-      "missing-czech-title-{data-service}": "Chybí český název pro \"{{data-service}}\".",
-      "missing-endpoint-url-{data-service}": "Chybí endpoint URL pro \"{{data-service}}\".",
-      "missing-hvd-category-{data-service}": "Chybí HVD kategorie pro \"{{data-service}}\".",
-      "using-hvd-top-category-{data-service}": "je použita kořenová HVD kategorie pro \"{{data-service}}\", má být použita specifická (listová).",
-      "missing-contact-point-{data-service}": "Chybí kontaktní údaje pro \"{{data-service}}\".",
-      "missing-page-{data-service}": "Chybí dokumentace pro \"{{data-service}}\"."
+      "missing-czech-title-{data-service}": "Chybí český název pro datovou službu \"{{data-service}}\".",
+      "missing-endpoint-url-{data-service}": "Chybí přístupový bod pro datovou službu \"{{data-service}}\".",
+      "missing-hvd-category-{data-service}": "Chybí HVD kategorie pro datovou službu \"{{data-service}}\".",
+      "using-hvd-top-category-{data-service}": "je použita kořenová HVD kategorie pro datovou službu \"{{data-service}}\", má být použita specifická (listová).",
+      "missing-contact-point-{data-service}": "Chybí kontaktní údaje pro datovou službu \"{{data-service}}\".",
+      "missing-page-{data-service}": "Chybí dokumentace pro datovou službu \"{{data-service}}\".",
+      "missing-legislation-for-hvd-{data-service}": "Chybí označení jako HVD pomocí legislativy pro datovou službu \"{{data-service}}\"."
     },
     "summary": {
       "content-type-from-extension": "Druh obsahu byl určen z přípony. Webovým serverem není indikován správný Content-Type.",
