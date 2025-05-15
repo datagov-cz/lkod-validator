@@ -376,7 +376,7 @@ function populateDatasetEntrySectionIssues(
   }
   if (dataset.withThemeButNotFromEurovoc) {
     issues.push({
-      level: Model.Level.WARNING,
+      level: Model.Level.ERROR,
       payload: "issues.dataset.missing-eurovoc-theme",
       args: { dataset: dataset.iri },
     });
