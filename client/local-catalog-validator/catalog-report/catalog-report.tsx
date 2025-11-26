@@ -18,6 +18,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Pagination from "@mui/material/Pagination";
+import Typography from "@mui/material/Typography";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 import {
   Report,
@@ -308,6 +310,18 @@ function ResourceSection({
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <IssuesList issues={resource.issues} />
+        <JsonSchemaErrorsList
+          title={t("ui.json-schema-errors.dataset")}
+          errors={resource.datasetJsonSchemaErrors}
+        />
+        <JsonSchemaErrorsList
+          title={t("ui.json-schema-errors.hvd")}
+          errors={resource.hvdJsonSchemaErrors}
+        />
+        <JsonSchemaErrorsList
+          title={t("ui.json-schema-errors.series")}
+          errors={resource.seriesJsonSchemaErrors}
+        />
       </Collapse>
     </>
   );
@@ -369,5 +383,104 @@ function DatasetSection({
         <IssuesList issues={dataset.allIssues} />
       </Collapse>
     </>
+  );
+}
+
+type JsonSchemaErrorsListProps = {
+  title: string;
+  errors: Report.DatasetReference["datasetJsonSchemaErrors"];
+};
+
+function JsonSchemaErrorsList({
+  title,
+  errors,
+}: JsonSchemaErrorsListProps): React.ReactElement | null {
+  if (!errors || errors.length === 0) {
+    return null;
+  }
+  const { t } = useTranslation();
+  return (
+    <Box sx={{ pl: 2, pr: 1 }}>
+      <Typography variant="subtitle2" sx={{ ml: 4, mb: 1 }}>
+        {title}
+      </Typography>
+      <List disablePadding>
+        {errors.map((error, index) => (
+          <JsonSchemaErrorItem key={`${error.instanceLocation}-${index}`} error={error} />
+        ))}
+      </List>
+    </Box>
+  );
+}
+
+type JsonSchemaErrorItemProps = {
+  error: NonNullable<Report.DatasetReference["datasetJsonSchemaErrors"]>[number];
+};
+
+function JsonSchemaErrorItem({
+  error,
+}: JsonSchemaErrorItemProps): React.ReactElement {
+  const { t } = useTranslation();
+  const [showDefinition, setShowDefinition] = useState(false);
+  return (
+    <ListItem sx={{ pl: 4 }}>
+      <ListItemIcon>
+        <ErrorOutlineIcon sx={{ color: "red" }} />
+      </ListItemIcon>
+      <ListItemText
+        primary={t("ui.json-schema-errors.location", {
+          location:
+            error.instanceLocation ??
+            t("ui.json-schema-errors.unknown-location"),
+        })}
+        secondary={
+          <>
+            <Typography variant="body2">
+              {t("ui.json-schema-errors.keyword", {
+                keyword:
+                  error.absoluteKeywordLocation ??
+                  error.keyword ??
+                  t("ui.json-schema-errors.unknown-keyword"),
+              })}
+            </Typography>
+            {error.schemaFragment !== null && error.schemaFragment !== undefined ? (
+              <Box sx={{ mt: 1 }}>
+                <Button
+                  size="small"
+                  onClick={() => setShowDefinition(!showDefinition)}
+                >
+                  {showDefinition
+                    ? t("ui.json-schema-errors.hide-definition")
+                    : t("ui.json-schema-errors.show-definition")}
+                </Button>
+                <Collapse
+                  in={showDefinition}
+                  timeout="auto"
+                  unmountOnExit
+                >
+                  <Typography
+                    component="pre"
+                    variant="body2"
+                    sx={{
+                      backgroundColor: theme => theme.palette.action.hover,
+                      p: 1,
+                      borderRadius: 1,
+                      mt: 1,
+                      whiteSpace: "pre-wrap",
+                    }}
+                  >
+                    {t("ui.json-schema-errors.definition")}
+                    {"\n"}
+                    {typeof error.schemaFragment === "string"
+                      ? error.schemaFragment
+                      : JSON.stringify(error.schemaFragment, null, 2)}
+                  </Typography>
+                </Collapse>
+              </Box>
+            ) : null}
+          </>
+        }
+      />
+    </ListItem>
   );
 }

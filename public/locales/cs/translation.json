@@ -36,7 +36,19 @@
     "dataset": "Datová sada",
     "dataseries": "Datová sada (série)",
     "no-search-results": "Nejsou dostupné žádné výsledky požadované závažnosti.",
-    "processing-{total}-{actual}": "Probíhá zpracování {{actual}} z {{total}}."
+    "processing-{total}-{actual}": "Probíhá zpracování {{actual}} z {{total}}.",
+    "json-schema-errors": {
+      "dataset": "Detaily JSON schématu (datová sada)",
+      "hvd": "Detaily JSON schématu (HVD)",
+      "series": "Detaily JSON schématu (datová série)",
+      "location": "Cesta v JSON: {{location}}",
+      "keyword": "Porušené pravidlo: {{keyword}}",
+      "definition": "Pravidlo ze schématu:",
+      "show-definition": "Zobrazit detail schématu",
+      "hide-definition": "Skrýt detail schématu",
+      "unknown-location": "neuvedeno",
+      "unknown-keyword": "neuvedeno"
+    }
   },
   "logger": {
     "loading-catalog-entry-{catalog}": "Načítám katalog \"{{catalog}}\".",

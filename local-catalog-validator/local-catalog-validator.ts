@@ -104,11 +104,23 @@ function createDatasetReference(
   let validByHvdJsonSchema: boolean | null = null;
   let validByDatasetJsonSchema: boolean | null = null;
   let validBySeriesJsonSchema: boolean | null = null;
+  let datasetJsonSchemaErrors:
+    | Model.DatasetReference["datasetJsonSchemaErrors"]
+    | null = null;
+  let hvdJsonSchemaErrors:
+    | Model.DatasetReference["hvdJsonSchemaErrors"]
+    | null = null;
+  let seriesJsonSchemaErrors:
+    | Model.DatasetReference["seriesJsonSchemaErrors"]
+    | null = null;
   if (Loader.isJsonDatasetEntryPoint(entry)) {
     isJsonDocument = true;
     validByHvdJsonSchema = entry.validByHvdJsonSchema;
     validByDatasetJsonSchema = entry.validByDatasetJsonSchema;
     validBySeriesJsonSchema = entry.validBySeriesJsonSchema;
+    datasetJsonSchemaErrors = entry.datasetJsonSchemaErrors;
+    hvdJsonSchemaErrors = entry.hvdJsonSchemaErrors;
+    seriesJsonSchemaErrors = entry.seriesJsonSchemaErrors;
   }
 
   const datasets = wrap.datasets.map(dataset => createDataset(entry, dataset));
@@ -124,6 +136,9 @@ function createDatasetReference(
     validByHvdJsonSchema,
     validByDatasetJsonSchema,
     validBySeriesJsonSchema,
+    datasetJsonSchemaErrors,
+    hvdJsonSchemaErrors,
+    seriesJsonSchemaErrors,
     datasets,
     issues: [],
   });

@@ -293,12 +293,16 @@ export class CatalogReader extends RdfResourceReader {
   protected async validateJsonDocument(document: object): Promise<void> {
     this.report.isJsonFormat = true;
     const entry = this.report as Model.JsonCatalogEntryPoint;
-    entry.canBeCkanApi =
-      !entry.validByJsonSchema && this.canBeCkanApi(entry.url, document);
-    entry.validByJsonSchema = await this.jsonSchema.validate(
+    const validation = await this.jsonSchema.validate(
       CATALOG_JSON_SCHEMA_ID,
       document,
     );
+    entry.validByJsonSchema = validation.valid;
+    entry.jsonSchemaErrors = validation.valid
+      ? null
+      : validation.errors ?? null;
+    entry.canBeCkanApi =
+      !entry.validByJsonSchema && this.canBeCkanApi(entry.url, document);
   }
 
   private canBeCkanApi(url: string, content: any) {
@@ -509,31 +513,46 @@ export class DatasetReader extends RdfResourceReader {
     entry.validByHvdJsonSchema = null;
     entry.validByDatasetJsonSchema = null;
     entry.validBySeriesJsonSchema = null;
+    entry.hvdJsonSchemaErrors = null;
+    entry.datasetJsonSchemaErrors = null;
+    entry.seriesJsonSchemaErrors = null;
     // Instead of validating using all schemas we try to determine type,
     // using distinct features.
     if (document["typ"] === "Datová sada") {
       // Validate as dataset.
-      entry.validByDatasetJsonSchema = await this.jsonSchema.validate(
+      const datasetValidation = await this.jsonSchema.validate(
         DATASET_JSON_SCHEMA_ID,
         document,
       );
+      entry.validByDatasetJsonSchema = datasetValidation.valid;
+      entry.datasetJsonSchemaErrors = datasetValidation.valid
+        ? null
+        : datasetValidation.errors ?? null;
       // But also check as it can be HVD.
       const legal = document["právní_předpis"] ?? null;
       if (
         Array.isArray(legal) &&
         legal.findIndex(Codelist.isApplicableLegislationHvd) !== -1
       ) {
-        entry.validByHvdJsonSchema = await this.jsonSchema.validate(
+        const hvdValidation = await this.jsonSchema.validate(
           HVD_JSON_SCHEMA_ID,
           document,
         );
+        entry.validByHvdJsonSchema = hvdValidation.valid;
+        entry.hvdJsonSchemaErrors = hvdValidation.valid
+          ? null
+          : hvdValidation.errors ?? null;
       }
     }
     if (document["typ"] === "Datová série") {
-      entry.validBySeriesJsonSchema = await this.jsonSchema.validate(
+      const seriesValidation = await this.jsonSchema.validate(
         SERIES_JSON_SCHEMA_ID,
         document,
       );
+      entry.validBySeriesJsonSchema = seriesValidation.valid;
+      entry.seriesJsonSchemaErrors = seriesValidation.valid
+        ? null
+        : seriesValidation.errors ?? null;
     }
   }
 

@@ -1,4 +1,5 @@
 import { type ContentType } from "../service/content-type";
+import { type JsonSchemaValidationError } from "../service/json-schema";
 
 export interface LocalCatalog {
   catalog: CatalogWrap;
@@ -77,6 +78,11 @@ export interface JsonCatalogEntryPoint extends CatalogEntryPoint {
   validByJsonSchema: boolean;
 
   /**
+   * Validation errors when JSON schema validation fails.
+   */
+  jsonSchemaErrors: JsonSchemaValidationError[] | null;
+
+  /**
    * True when API is not valid by JSON schema and it looks like CKAN API.
    */
   canBeCkanApi: boolean;
@@ -142,15 +148,21 @@ export interface JsonDatasetEntryPoint extends DatasetEntryPoint {
    */
   validByDatasetJsonSchema: boolean | null;
 
+  datasetJsonSchemaErrors: JsonSchemaValidationError[] | null;
+
   /**
    * True if document pass validation using HVD JSON schema.
    */
   validByHvdJsonSchema: boolean | null;
 
+  hvdJsonSchemaErrors: JsonSchemaValidationError[] | null;
+
   /**
    * True if document pass validation using series JSON schema.
    */
   validBySeriesJsonSchema: boolean | null;
+
+  seriesJsonSchemaErrors: JsonSchemaValidationError[] | null;
 }
 
 export const isJsonDatasetEntryPoint = (
