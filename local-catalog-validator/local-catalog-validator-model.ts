@@ -1,4 +1,5 @@
 import { ContentType } from "../service/content-type";
+import { type JsonSchemaValidationError } from "../service/json-schema";
 
 export enum Level {
   /**
@@ -200,6 +201,12 @@ export interface DatasetReference {
   validByHvdJsonSchema: boolean | null;
 
   validBySeriesJsonSchema: boolean | null;
+
+  datasetJsonSchemaErrors: JsonSchemaValidationError[] | null;
+
+  hvdJsonSchemaErrors: JsonSchemaValidationError[] | null;
+
+  seriesJsonSchemaErrors: JsonSchemaValidationError[] | null;
 
   /**
    * Datasets found in this entry.
