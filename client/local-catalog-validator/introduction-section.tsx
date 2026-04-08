@@ -26,7 +26,7 @@ export function IntroductionSection() {
           Local Data Catalogs
         </a>
         <a
-          href="https://opendata.gov.cz/špatná-praxe:chybějící-cors"
+          href="https://data.gov.cz/špatná-praxe/technické-překážky/#chybějící-podpora-cross-origin-resource-sharing-cors"
           target="_blank"
           rel="noopener noreferrer"
         >
