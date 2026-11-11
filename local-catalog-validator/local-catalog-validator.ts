@@ -2,6 +2,7 @@ import { ContentType } from "../service/content-type";
 import * as Codelist from "./codelist";
 import * as Loader from "./local-catalog-loader-model";
 import * as Model from "./local-catalog-validator-model";
+import { catalogSpecification } from "./specification";
 
 export function createLocalCatalogReport(
   report: Loader.LocalCatalog,
@@ -674,8 +675,10 @@ function createSummary(
   const isInvalidByShacl = entryPoint.validByShacl === false;
   let isInvalidByJsonSchema: boolean | null = null;
   let canBeCkanApi = false;
+  let specification: Model.Summary["specification"] = null;
   if (Loader.isJsonCatalogEntryPoint(entryPoint)) {
     isInvalidByJsonSchema = !entryPoint.validByJsonSchema;
+    specification = catalogSpecification(entryPoint.jsonSchemaId);
     canBeCkanApi = entryPoint.canBeCkanApi;
   }
   //
@@ -705,6 +708,7 @@ function createSummary(
     isContentTypeFromExtension,
     isInvalidByShacl,
     isInvalidByJsonSchema,
+    specification,
     canBeCkanApi,
     foundCatalogUrls,
     catalogs: catalogs,

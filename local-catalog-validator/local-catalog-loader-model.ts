@@ -78,6 +78,11 @@ export interface JsonCatalogEntryPoint extends CatalogEntryPoint {
   validByJsonSchema: boolean;
 
   /**
+   * Identifier of JSON schema used for the validation.
+   */
+  jsonSchemaId: string;
+
+  /**
    * Validation errors when JSON schema validation fails.
    */
   jsonSchemaErrors: JsonSchemaValidationError[] | null;

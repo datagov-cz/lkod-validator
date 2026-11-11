@@ -1,5 +1,6 @@
 import { ContentType } from "../service/content-type";
 import { type JsonSchemaValidationError } from "../service/json-schema";
+import { type Specification } from "./specification";
 
 export enum Level {
   /**
@@ -129,6 +130,12 @@ export interface Summary {
   isInvalidByShacl: boolean;
 
   isInvalidByJsonSchema: boolean | null;
+
+  /**
+   * Specification used to validate the catalog using JSON schema,
+   * null when JSON schema was not used.
+   */
+  specification: Specification | null;
 
   canBeCkanApi: boolean;
 

@@ -52,6 +52,23 @@ function SummarySection({ state }: { state: Report.Summary }) {
       <dl>
         <dt>{t("ui.content-type")}</dt>
         <dd>{t(contentTypeToHumanLabel(state.contentType))}</dd>
+        {state.specification === null ? null : (
+          <>
+            <dt>{t("ui.specification")}</dt>
+            <dd>
+              {state.specification.title}, {t("ui.specification-version")}{" "}
+              {state.specification.version}
+              &nbsp;
+              <a
+                href={state.specification.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <OpenInNewIcon />
+              </a>
+            </dd>
+          </>
+        )}
         <dt>{t("ui.catalog-url")}</dt>
         {state.catalogs.map(catalog => (
           <dd key={catalog.iri}>
