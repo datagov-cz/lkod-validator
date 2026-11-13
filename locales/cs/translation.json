@@ -14,6 +14,8 @@
     "can-not-determine-content-type-status-summary": "Nepodařilo se načíst vstupní bod, poskytnuté URL nevede na validní lokální katalog.",
     "can-not-determine-content-type-status-suggestion-{status-code}-{content-type}": "Server odpověděl HTTP kódem {{status-code}} a hlavičkou content-type \"{{content-type}}\".",
     "content-type": "Formát vstupního bodu",
+    "specification": "Otevřená formální norma",
+    "specification-version": "verze",
     "catalog-url": "URL katalogu",
     "catalog-title": "Název katalogu",
     "number-of-resources-with-error": "Odkazané záznamy datových sad s chybou",
