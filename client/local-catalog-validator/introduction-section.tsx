@@ -12,7 +12,7 @@ export function IntroductionSection() {
         Dummy text node here to make i18n work, it should not be visible to a
         user ...
         <a
-          href="https://ofn.gov.cz/dcat-ap-cz-rozhraní-katalogů-otevřených-dat/2024-05-28/"
+          href="https://ofn.gov.cz/dcat-ap-cz-rozhraní-katalogů-dat/2026-09-23/"
           target="_blank"
           rel="noopener noreferrer"
         >

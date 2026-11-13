@@ -18,14 +18,16 @@ import * as Vocabulary from "./vocabulary";
 
 import CatalogShacl from "./specification/rozhraní-katalogů-otevřených-dat/2024-05-28/catalog.shacl";
 
-import {
-  OpenDataCatalogs20250428,
-  HVD_JSON_SCHEMA_ID,
-  DATASET_JSON_SCHEMA_ID,
-  SERIES_JSON_SCHEMA_ID,
-  CATALOG_JSON_SCHEMA_ID,
-} from "./specification/rozhraní-katalogů-otevřených-dat";
+import { OpenDataCatalogs20250428 } from "./specification/rozhraní-katalogů-otevřených-dat";
+import { DataCatalogInterface20260923 } from "./specification/dcat-ap-cz-rozhraní-katalogů-dat";
+import { OpenData20260923 } from "./specification/dcat-ap-cz-otevřená-data";
+import { HighValueDatasets20260923 } from "./specification/dcat-ap-cz-hvd";
 import { CommonDataTypes20200701 } from "./specification/základní-datové-typy";
+import {
+  selectCatalogJsonSchema,
+  selectDatasetJsonSchemas,
+  selectSeriesJsonSchema,
+} from "./specification";
 
 /**
  * This method should be called only once.
@@ -34,7 +36,13 @@ import { CommonDataTypes20200701 } from "./specification/základní-datové-typy
 export function loadSchemasToJsonSchemaService(
   jsonSchema: JsonSchemaService,
 ): void {
-  const schemas = [...OpenDataCatalogs20250428, ...CommonDataTypes20200701];
+  const schemas = [
+    ...OpenDataCatalogs20250428,
+    ...DataCatalogInterface20260923,
+    ...OpenData20260923,
+    ...HighValueDatasets20260923,
+    ...CommonDataTypes20200701,
+  ];
   for (const schema of schemas) {
     jsonSchema.addJsonSchema(schema);
   }
@@ -293,8 +301,9 @@ export class CatalogReader extends RdfResourceReader {
   protected async validateJsonDocument(document: object): Promise<void> {
     this.report.isJsonFormat = true;
     const entry = this.report as Model.JsonCatalogEntryPoint;
+    entry.jsonSchemaId = selectCatalogJsonSchema(document);
     const validation = await this.jsonSchema.validate(
-      CATALOG_JSON_SCHEMA_ID,
+      entry.jsonSchemaId,
       document,
     );
     entry.validByJsonSchema = validation.valid;
@@ -517,25 +526,30 @@ export class DatasetReader extends RdfResourceReader {
     entry.datasetJsonSchemaErrors = null;
     entry.seriesJsonSchemaErrors = null;
     // Instead of validating using all schemas we try to determine type,
-    // using distinct features.
-    if (document["typ"] === "Datová sada") {
-      // Validate as dataset.
-      const datasetValidation = await this.jsonSchema.validate(
-        DATASET_JSON_SCHEMA_ID,
-        document,
-      );
-      entry.validByDatasetJsonSchema = datasetValidation.valid;
-      entry.datasetJsonSchemaErrors = datasetValidation.valid
-        ? null
-        : datasetValidation.errors ?? null;
-      // But also check as it can be HVD.
+    // and version of the specification, using distinct features.
+    const datasetSchemas = selectDatasetJsonSchemas(document);
+    if (datasetSchemas !== null) {
+      if (datasetSchemas.dataset !== null) {
+        // Validate as dataset.
+        const datasetValidation = await this.jsonSchema.validate(
+          datasetSchemas.dataset,
+          document,
+        );
+        entry.validByDatasetJsonSchema = datasetValidation.valid;
+        entry.datasetJsonSchemaErrors = datasetValidation.valid
+          ? null
+          : datasetValidation.errors ?? null;
+      }
+      // But also check as it can be HVD, a document without dataset schema
+      // is using HVD context and is always validated as HVD.
       const legal = document["právní_předpis"] ?? null;
-      if (
-        Array.isArray(legal) &&
-        legal.findIndex(Codelist.isApplicableLegislationHvd) !== -1
-      ) {
+      const isHvd =
+        datasetSchemas.dataset === null ||
+        (Array.isArray(legal) &&
+          legal.findIndex(Codelist.isApplicableLegislationHvd) !== -1);
+      if (datasetSchemas.hvd !== null && isHvd) {
         const hvdValidation = await this.jsonSchema.validate(
-          HVD_JSON_SCHEMA_ID,
+          datasetSchemas.hvd,
           document,
         );
         entry.validByHvdJsonSchema = hvdValidation.valid;
@@ -544,9 +558,10 @@ export class DatasetReader extends RdfResourceReader {
           : hvdValidation.errors ?? null;
       }
     }
-    if (document["typ"] === "Datová série") {
+    const seriesSchema = selectSeriesJsonSchema(document);
+    if (seriesSchema !== null) {
       const seriesValidation = await this.jsonSchema.validate(
-        SERIES_JSON_SCHEMA_ID,
+        seriesSchema,
         document,
       );
       entry.validBySeriesJsonSchema = seriesValidation.valid;

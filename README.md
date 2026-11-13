@@ -1,6 +1,9 @@
 # Validátor lokálních katalogů otevřených dat (LKODů)
 
-Tento repozitář obsahuje validátor lokálních katalogů otevřených dat na základě otevřené formální normy [Rozhraní katalogů otevřených dat: DCAT-AP-CZ](https://ofn.gov.cz/dcat-ap-cz-rozhraní-katalogů-otevřených-dat/2024-05-28/), tj. dle rozhraní DCAT-AP Dokumenty a DCAT-AP SPARQL Endpoint.
+Tento repozitář obsahuje validátor lokálních katalogů otevřených dat na základě otevřených formálních norem [DCAT-AP-CZ: Rozhraní katalogů dat](https://ofn.gov.cz/dcat-ap-cz-rozhraní-katalogů-dat/2026-09-23/), [DCAT-AP-CZ: Datové sady otevřených dat](https://ofn.gov.cz/dcat-ap-cz-otevřená-data/2026-09-23/) a [DCAT-AP-CZ: Datové sady s vysokou hodnotou (HVD)](https://ofn.gov.cz/dcat-ap-cz-hvd/2026-09-23/), tj. dle rozhraní DCAT-AP Dokumenty a DCAT-AP SPARQL Endpoint.
+
+Dokumenty používající JSON-LD kontext předchozí verze normy [Rozhraní katalogů otevřených dat: DCAT-AP-CZ](https://ofn.gov.cz/dcat-ap-cz-rozhraní-katalogů-otevřených-dat/2024-05-28/) jsou nadále validovány vůči JSON schématům této verze. Verze se pro každý dokument určuje podle jeho `@context`.
+
 Pro správnou funkci LKOD je třeba, aby jeho přístupový bod LKOD implementoval [techniku CORS](https://data.gov.cz/špatná-praxe/technické-překážky/#chybějící-podpora-cross-origin-resource-sharing-cors).
 
 Validátor běží plně ve vašem prohlížeči.
